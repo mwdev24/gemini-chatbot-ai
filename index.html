@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelGo | Travel Assistant</title>
+  <meta name="description" content="TravelGo membantu perencanaan perjalanan dengan mudah"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">AI Travel Assistant</p>
+      <h1>TravelGo membantu perencanaan perjalanan dengan mudah.</h1>
+      <p class="hero-copy">
+        Gunakan chatbot ini untuk menyusun itinerary, memperkirakan anggaran, membandingkan moda transportasi,
+        dan memperoleh rekomendasi aktivitas wisata secara profesional dan terstruktur.
+      </p>
+
+      <div class="preset-grid" id="preset-grid">
+        <button class="preset-card" type="button" data-prompt="Tolong susunkan itinerary formal 3 hari 2 malam ke Yogyakarta untuk keluarga dengan fokus budaya, kuliner, dan anggaran menengah.">
+          Itinerary keluarga
+        </button>
+        <button class="preset-card" type="button" data-prompt="Mohon rekomendasikan rencana perjalanan bisnis 2 hari ke Jakarta, termasuk area hotel strategis dan estimasi transportasi.">
+          Perjalanan bisnis
+        </button>
+        <button class="preset-card" type="button" data-prompt="Tolong bandingkan liburan ke Bali dan Lombok untuk pasangan, dengan pertimbangan suasana, biaya, dan aktivitas unggulan.">
+          Bandingkan destinasi
+        </button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-top">
+        <div>
+          <p class="panel-label">Konfigurasi aktif</p>
+          <h2>Travel Assistant</h2>
+        </div>
+        <button id="reset-chat" class="secondary-button" type="button">Reset chat</button>
+      </div>
+
+      <div id="chat-box" class="chat-box" aria-live="polite"></div>
+
+      <form id="chat-form" class="chat-form">
+        <label class="sr-only" for="user-input">Pertanyaan perjalanan</label>
+        <textarea
+          id="user-input"
+          rows="3"
+          placeholder="Contoh: Mohon buatkan rencana wisata 4 hari di Bandung untuk solo traveler dengan anggaran hemat."
+          autocomplete="off"
+          required
+        ></textarea>
+        <div class="form-actions">
+          <p class="hint">Tips: sertakan tujuan, durasi, jumlah traveler, dan kisaran anggaran.</p>
+          <button type="submit">Kirim</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

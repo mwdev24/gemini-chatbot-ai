@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #f7f1e8;
+  --bg-strong: #e6dccd;
+  --panel: rgba(255, 252, 247, 0.9);
+  --panel-border: rgba(106, 77, 44, 0.15);
+  --text: #2f2419;
+  --muted: #746250;
+  --accent: #0e6b50;
+  --accent-dark: #0b543f;
+  --user-bubble: #efe1c8;
+  --bot-bubble: #fffaf1;
+  --shadow: 0 18px 50px rgba(69, 47, 22, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(14, 107, 80, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(145, 98, 44, 0.18), transparent 30%),
+    linear-gradient(135deg, var(--bg), #fdfaf4 52%, var(--bg-strong));
+}
+
+.hero h1,
+.panel h2,
+.brief-card strong,
+button,
+.secondary-button,
+textarea::placeholder {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.eyebrow,
+.panel-label,
+.hero-copy,
+.brief-card p,
+.hint,
+.message,
+textarea,
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.shell {
+  width: min(1400px, calc(100% - 32px));
+  margin: 32px auto;
+  display: grid;
+  grid-template-columns: 0.95fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.hero,
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 32px;
+}
+
+.eyebrow,
+.panel-label,
+.brief-card span {
+  margin: 0 0 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.hero h1,
+.panel h2 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  max-width: 100%;
+}
+
+.hero-copy {
+  margin: 18px 0 28px;
+  max-width: 56ch;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.preset-grid,
+.brief-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.preset-card,
+.brief-card,
+.secondary-button,
+button {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.preset-card {
+  text-align: left;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(106, 77, 44, 0.14);
+  background: linear-gradient(180deg, rgba(255, 250, 241, 0.95), rgba(244, 233, 214, 0.95));
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.preset-card:hover,
+.secondary-button:hover,
+button:hover {
+  transform: translateY(-1px);
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panel-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.secondary-button {
+  border: 1px solid rgba(106, 77, 44, 0.18);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.brief-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.brief-card {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 249, 240, 0.78);
+  border: 1px solid rgba(106, 77, 44, 0.1);
+}
+
+.brief-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.02rem;
+}
+
+.brief-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 500px;
+  overflow-y: auto;
+  padding: 8px 4px 8px 0;
+  margin-bottom: 20px;
+}
+
+.message {
+  max-width: min(85%, 680px);
+  padding: 16px 18px;
+  border-radius: 22px;
+  line-height: 1.65;
+  box-shadow: 0 10px 30px rgba(64, 46, 23, 0.08);
+}
+
+.message p,
+.message ol,
+.message ul {
+  margin: 0;
+}
+
+.message p + p,
+.message p + ol,
+.message p + ul,
+.message ol + p,
+.message ul + p,
+.message ol + ul,
+.message ul + ol {
+  margin-top: 12px;
+}
+
+.message ol,
+.message ul {
+  padding-left: 22px;
+}
+
+.message li + li {
+  margin-top: 8px;
+}
+
+.message strong {
+  font-weight: 700;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: var(--user-bubble);
+  border-bottom-right-radius: 8px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background: var(--bot-bubble);
+  border-bottom-left-radius: 8px;
+}
+
+.message.system {
+  align-self: center;
+  width: 100%;
+  max-width: 100%;
+  background: rgba(14, 107, 80, 0.08);
+  color: var(--muted);
+  border: 1px dashed rgba(14, 107, 80, 0.22);
+  box-shadow: none;
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 110px;
+  border-radius: 22px;
+  border: 1px solid rgba(106, 77, 44, 0.18);
+  padding: 16px 18px;
+  font: inherit;
+  color: var(--text);
+  background: rgba(255, 252, 247, 0.95);
+}
+
+textarea:focus {
+  outline: 2px solid rgba(14, 107, 80, 0.25);
+  border-color: rgba(14, 107, 80, 0.3);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 980px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+  }
+
+  .brief-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 20px, 100%);
+    margin: 16px auto;
+  }
+
+  .hero,
+  .panel {
+    border-radius: 22px;
+    padding: 20px;
+  }
+
+  .panel-top,
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chat-box {
+    height: 420px;
+  }
+
+  .message {
+    max-width: 100%;
+  }
+}
